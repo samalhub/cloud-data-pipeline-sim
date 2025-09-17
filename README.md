@@ -1,3 +1,15 @@
+# Cloud Data Pipeline (AWS-Style, Local Simulation)
+
+> A local simulation of an AWS-style event-driven pipeline (S3 → Lambda → DynamoDB → CloudWatch)
+
+- Drop JSON into `data/incoming/` → processor transforms + idempotent upsert to SQLite  
+- Routes to `processed/` or **deadletter** on failure  
+- Provides basic metrics and logs  
+- Zero-dependency mode (no installs):
+  ```bash
+  python src/processor_manual.py --all
+  python src/report.py
+
 # Cloud Data Pipeline (Local AWS-Style Simulation)
 
 **Goal:** Demonstrate a scalable, event-driven data pipeline inspired by AWS (S3 → Lambda → DynamoDB → CloudWatch) **without** a cloud account.
